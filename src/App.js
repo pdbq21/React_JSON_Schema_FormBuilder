@@ -12,18 +12,34 @@ class App extends Component {
         "description": "A form description.",
         "type": "object",
         "properties": {
-          "first_name": {"type": "string"},
-          "last_name": {"type": "string"},
+          "first_name": {
+            "type": "string",
+            "title": "First Name"
+          },
+          "last_name": {
+            "type": "string",
+            "title": "Last Name"
+          },
           "age": {"type": "integer", "title": "Age"},
           "password": {"type": "string", "title": "Password", "minLength": 3},
           "address": {
             "type": "object",
             "properties": {
-              "street_1": {"type": "string"},
-              "street_2": {"type": "string"},
-              "city": {"type": "string"},
+              "street_1": {
+                "type": "string",
+                "title": "Street 1"
+              },
+              "street_2": {
+                "type": "string",
+                "title": "Street 2"
+              },
+              "city": {
+                "type": "string",
+                "title": "City"
+              },
               "state": {
                 "type": "string",
+                "title": "State",
                 "enum": ["AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE",
                   "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA",
                   "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS",
@@ -31,10 +47,16 @@ class App extends Component {
                   "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD",
                   "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY"]
               },
-              "zip_code": {"type": "string"}
+              "zip_code": {
+                "type": "string",
+                "title": "ZIP Code"
+              }
             }
           },
-          "notes": {"type": "string"},
+          "notes": {
+            "type": "string",
+            "title": "Notes"
+          },
           "phone_numbers": {
             "type": "array",
             "items": {
