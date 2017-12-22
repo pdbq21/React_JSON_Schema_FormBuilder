@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Form from './lib'
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +24,7 @@ class App extends Component {
           "age": {"type": "integer", "title": "Age"},
           "password": {"type": "string", "title": "Password", "minLength": 3},
           "address": {
+            "title": "Address title",
             "type": "object",
             "properties": {
               "street_1": {
@@ -70,6 +72,90 @@ class App extends Component {
           }
         },
         "required": ["last_name"]
+      },
+      "uiSchema": {
+        "rootField": {
+          /*
+          ! helper
+          ! items (for type: array)
+          ! root container (form)
+          ! control (yesno, no, delok, ...)
+
+          - order (Array [])
+          - type (object, array, string, integer, number, boolean, ...):
+            - object:
+              - title (String)
+                - attributes (...)
+                - style
+                - widget
+              - description (String)
+                - attributes (...)
+                - style
+                - widget
+              - properties (children)
+                - widget
+                - style
+              - widget
+            - string:
+              - title (String)
+                - widget
+                - style
+                - attribute
+              - type (text, password, number, ...)
+              - validation attributes (minLength, maxLength, ...)
+              - widget
+              - attributes
+              - style
+              - enum
+              - description
+            - integer/number/float:
+              - widget
+              - title
+              - validation attributes (minLength, maxLength, ...)
+              - style
+              - type (number)
+              - attributes
+              - description
+              - enum
+            - boolean:
+              - widget (checkbox, radio, ...)
+              - style
+              - title
+              - description
+            - array:
+              - title
+              - description
+              - widget
+              - style
+              -
+
+
+          */
+        },
+        "firstName": {
+          "ui:autofocus": true,
+          "ui:emptyValue": ""
+        },
+        "age": {
+          "ui:widget": "updown",
+          "ui:title": "Age of person",
+          "ui:description": "(earthian year)"
+        },
+        "bio": {
+          "ui:widget": "textarea"
+        },
+        "password": {
+          "ui:widget": "password",
+          "ui:help": "Hint: Make it strong!"
+        },
+        "date": {
+          "ui:widget": "alt-datetime"
+        },
+        "telephone": {
+          "ui:options": {
+            "inputType": "tel"
+          }
+        }
       }
     }
   }

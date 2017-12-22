@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
-
 function renderFields(schema, key) {
 
   console.log(schema, schema.type);
   const {type, description, title, properties} = schema;
+  const required = Array.isArray(schema.required) && schema.required.indexOf(key) !== -1;
   if (type === 'object') {
     const orderedProperties = Object.keys(properties);
     return (<fieldset key={key}>
@@ -15,16 +15,16 @@ function renderFields(schema, key) {
   } else if (type === 'string') {
     return (
       <div
-      key={key}
+        key={key}
       >
         {title && (<label htmlFor={title}>{title}</label>)}
-        <input type="text"/>
+        <input type="text" required={required}/>
       </div>)
   } else if (type === 'integer') {
     return (
       <div key={key}>
         {title && (<label htmlFor={title}>{title}</label>)}
-        <input type="number"/>
+        <input type="number" required={required}/>
       </div>)
   }
 
